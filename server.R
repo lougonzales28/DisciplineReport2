@@ -494,11 +494,17 @@ shinyServer(function(input, output, session) {
     }, height = 800, width = 800)
     
     output$model_record <- 
-      renderTable({
+      renderPlot({
         req(input$fit_model)
         mat <- Model$Record
-        mat = as.data.frame(mat) %>% tidyr::pivot_wider(names_from = `Feature Selection Method`, values_from = `AUC Score`)
-        return(mat)
+        #mat = as.data.frame(mat) %>% tidyr::pivot_wider(names_from = `Feature Selection Method`, values_from = `AUC Score`)
+        y = as.data.frame(mat) %>% mutate(`AUC Score`=as.numeric(as.character(`AUC Score`)), `Number of Features`=as.numeric(as.character(`Number of Features`)))
+        plot<- ggplot(y, 
+                      aes(x = `Number of Features`, y = `AUC Score`, colour = `Feature Selection Method`)) + geom_line(lwd = 1) + geom_point(size = 2) + 
+          theme_minimal() + ylab("AUC Score") + 
+          xlab("Number of Features") + labs(colour = "Feature Selection Method") + theme(text = element_text(size = 14, face = "bold"), legend.position = "bottom") 
+        
+        return(plot)
       })
 
 })

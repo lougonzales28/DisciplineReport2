@@ -37,7 +37,7 @@ shinyUI(fluidPage(
         
         hr(),
         h3("Effect of the Number of Features on Classifier"),
-        tableOutput("model_record")
+        plotOutput("model_record")
         
         ),
 
