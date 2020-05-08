@@ -36,7 +36,7 @@ shinyUI(fluidPage(
                      label = "Fit Model"),
         
         hr(),
-        h3("Effect of the Number of Features on Classifier"),
+        h3("Effect of the Number of Features on the Classifier"),
         plotOutput("model_record")
         
         ),
