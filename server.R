@@ -500,15 +500,5 @@ shinyServer(function(input, output, session) {
         mat = as.data.frame(mat) %>% tidyr::pivot_wider(names_from = `Feature Selection Method`, values_from = `AUC Score`)
         return(mat)
       })
-    
-    #output$AUC_score <- renderText({
-    #  req(input$FeatureSelection)
-      
-    #  vector = Model()
-      
-    #  gse_ggROC <- ggplot(vector, aes(d=obs, m=Yes)) + geom_roc()
-    #  AUC = round(calc_auc(gse_ggROC)$AUC, 2)
-    #  AUC
-    #})
 
 })
