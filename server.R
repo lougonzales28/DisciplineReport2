@@ -502,7 +502,7 @@ shinyServer(function(input, output, session) {
         plot<- ggplot(y, 
                       aes(x = `Number of Features`, y = `AUC Score`, colour = `Feature Selection Method`)) + geom_line(lwd = 1) + geom_point(size = 2) + 
           theme_minimal() + ylab("AUC Score") + 
-          xlab("Number of Features") + labs(colour = "Feature Selection Method") + theme(text = element_text(size = 14, face = "bold"), legend.position = "bottom") + ylim(0,1) 
+          xlab("Number of Features") + labs(colour = "Feature Selection Method") + theme(text = element_text(size = 14, face = "bold"), legend.position = "bottom") 
         
         return(plot)
       })
